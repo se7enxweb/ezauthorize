@@ -197,7 +197,7 @@
 {if eq( $displayRefundButton, true) }
 <tr>
     <td>{* 'Refund Order'|i18n( 'design/admin/shop/accounthandlers/html/ez' ) *}</td>
-    <td style="text-align:right; padding-top: 10px; padding-right: 5px;"><form name="refund" action="/refund/refund/order/{$order.id}" method="post" onSubmit="return doubleConfirmMessagePaymentRefund()"><input name="order" type="hidden" value="{$order.id}" /><input class="button" type=submit name="SubmitButton" value="Refund Order Payment" title="Click this button if you wish to refund this order payment." /></form></td>
+    <td class="ezauthorize-refund"><form name="refund" action="/refund/refund/order/{$order.id}" method="post" onSubmit="return doubleConfirmMessagePaymentRefund()"><input name="order" type="hidden" value="{$order.id}" /><input class="button" type=submit name="SubmitButton" value="Refund Order Payment" title="Click this button if you wish to refund this order payment." /></form></td>
 </tr>
 {/if}
 </table>

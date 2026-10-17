@@ -1,0 +1,6 @@
+/* The styles of the ezauthorize admin templates, loaded through design.ini [StylesheetSettings] BackendCSSFileList
+   so the ezjscore packer bundles them. The templates carry no style="" attribute: a Content-Security-Policy without
+   'unsafe-inline' for style-src-attr drops those. Spacing comes from the admin's --a4-* tokens. */
+
+/* Order view: the cell with the Refund Order Payment button */
+td.ezauthorize-refund { text-align: end; padding-top: var(--a4-space-2, 8px); padding-inline-end: var(--a4-space-1, 4px); }
