@@ -5,7 +5,7 @@ class ezauthorizeInfo
     {
         return array(
             'Name' => "eZ Authorize",
-            'Version' => "1.4.2",
+            'Version' => "1.4.3",
             'Copyright' => "Copyright (C) 2001 - 2026 Brookins Consulting, 7x &amp; Exponential Foundation",
             'Author' => "Brookins Consulting",
             'License' => "GNU General Public License v2.0 (or any later version)",
