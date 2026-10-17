@@ -1,48 +1,5 @@
-<SCRIPT LANGUAGE="JavaScript">
-<!--    
-// by Nannette Thacker
-// http://www.shiningstar.net
-// This script checks and unchecks boxes on a form
-// Checks and unchecks unlimited number in the group...
-// Pass the Checkbox group name...
-// call buttons as so:
-// <input type=button name="CheckAll"   value="Check All"
-        //onClick="checkAll(document.myform.list)">
-// <input type=button name="UnCheckAll" value="Uncheck All"
-        //onClick="uncheckAll(document.myform.list)">
-// -->
-
-<!-- Begin
-{literal}
-removecheck_togglestate = 0;
-function toggleAll()
-{
-	var checkref = document.basket.elements["RemoveProductItemDeleteList[]"];
-	if (!removecheck_togglestate)
-	{
-		for (i = 0; i < checkref.length; i++)
-		{
-			checkref[i].checked = true ;
-		}
-		removecheck_togglestate = 1;
-	} else
-	{
-		for (i = 0; i < checkref.length; i++)
-		{
-			checkref[i].checked = false;
-		}
-		removecheck_togglestate = 0;
-	}
-}
-
-function uncheckAll()
-{
-for (i = 0; i < field.length; i++)
-        field[i].checked = false ;
-}
-{/literal}
-//  End -->
-</script>
+{* The Remove heading checks and unchecks all items (javascript/ezauthorize.js; no inline code). *}
+{ezscript_require( array( 'ezauthorize.js' ) )}
 
 
 <div class="shop-basket">
@@ -117,7 +74,7 @@ for (i = 0; i < field.length; i++)
      	{"Total Price"|i18n("design/base/shop")}
         </th>
         <th align="center">
-        <a href="#" onClick="toggleAll(  )">Remove</a>
+        <a href="#" data-ezauthorize-toggle-all="RemoveProductItemDeleteList[]">Remove</a>
         </th>
     </tr>
     {section var=product_item loop=$basket.items sequence=array(bglight,bgdark)}

@@ -143,29 +143,8 @@
 {def $displayRefundButton = ezini( 'eZAuthorizeSettings', 'ShowAuthorizeDotNetRefundButton', 'ezauthorize.ini' )}
 
 <br />
-<script language="Javascript">
-{literal}
-<!--
- function doubleConfirmMessagePaymentRefund()
- {
-  var agree=confirm('Are you absolutly certain you want to refund this order?\n\nThis action is permenant ...');
-
-  if(agree)
-  {
-    alert('A log of this change will be saved.');
-    return true ;
-  }
-  else
-  {
-    alert('A wise decision!');
-    return false ;
-  }
-
-  return false ;
-}
--->
-{/literal}
-</script>
+{* The refund button asks twice (javascript/ezauthorize.js; no inline code). *}
+{ezscript( array( 'ezauthorize.js' ) )}
 
 {* $order.account_information|attribute(show,1) *}
 {* $order.account_information|attribute(show,1) *}
@@ -197,7 +176,7 @@
 {if eq( $displayRefundButton, true) }
 <tr>
     <td>{* 'Refund Order'|i18n( 'design/admin/shop/accounthandlers/html/ez' ) *}</td>
-    <td class="ezauthorize-refund"><form name="refund" action="/refund/refund/order/{$order.id}" method="post" onSubmit="return doubleConfirmMessagePaymentRefund()"><input name="order" type="hidden" value="{$order.id}" /><input class="button" type=submit name="SubmitButton" value="Refund Order Payment" title="Click this button if you wish to refund this order payment." /></form></td>
+    <td class="ezauthorize-refund"><form name="refund" action="/refund/refund/order/{$order.id}" method="post" data-ezauthorize-refund-confirm="Are you absolutely certain you want to refund this order?&#10;&#10;This action is permanent ..." data-ezauthorize-refund-confirmed="A log of this change will be saved." data-ezauthorize-refund-cancelled="A wise decision!"><input name="order" type="hidden" value="{$order.id}" /><input class="button" type=submit name="SubmitButton" value="Refund Order Payment" title="Click this button if you wish to refund this order payment." /></form></td>
 </tr>
 {/if}
 </table>
